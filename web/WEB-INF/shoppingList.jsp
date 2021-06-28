@@ -4,6 +4,7 @@
     Author     : 846582
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,14 +14,20 @@
     </head>
     <body>
         <h1>Shopping List</h1>
-        <p>Hello, ${user}</p><a href="ShoppingList?logout">Logout</a>
-        <br>
+        <p>Hello, ${user}  <a href="ShoppingList?logout">Logout</a></p>
         <h2>List</h2>
         <form method="post" action="ShoppingList">
-            <label for="add">Add item: </label>
-            <input type="text" name="add">
-            <input type="submit" value="Add">
+            <label>Add item: </label>
+            <input type="text" name="item">
+            <input type="submit" value="add">
             <input type="hidden" name="action" value="add">
         </form>
+        
+        <c:if test="${!list.isEmpty()}">
+            
+            <p> add items </p>
+        </c:if>
+            
+        
     </body>
 </html>
