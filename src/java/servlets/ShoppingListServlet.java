@@ -96,21 +96,26 @@ public class ShoppingListServlet extends HttpServlet {
             session.setAttribute("list", list);
             String username = request.getParameter("username");
             session.setAttribute("user" , username);
-            getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
-    
+            
         }
         else if(userAction != null && userAction.equals("add")){
         String addItem = request.getParameter("item");
         ArrayList<String> list = (ArrayList<String>) session.getAttribute("list");
         list.add(addItem);
         session.setAttribute("list", list);
-        getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
-  
+      
+    
         }
         else if(userAction != null && userAction.equals("delete")){
+         ArrayList<String> list = (ArrayList<String>) session.getAttribute("list");
+         list.remove(request.getParameter("boxes"));
+        session.setAttribute("list", list);
         
+         
+         
         }
-        
+        getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
+        return;
     }
 
     /**

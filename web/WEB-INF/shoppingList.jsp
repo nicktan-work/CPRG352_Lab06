@@ -22,12 +22,20 @@
             <input type="submit" value="add">
             <input type="hidden" name="action" value="add">
         </form>
-        
+
         <c:if test="${!list.isEmpty()}">
-            
-            <p> add items </p>
+            <form action="post" action="ShoppingList"></form>
+            <c:forEach items="${list}" var="items">
+                <input type="radio" name="boxes" value="${items}"> 
+                <label for="${items}">${items}</label>
+                <br>
+            </c:forEach>
+              
+                
         </c:if>
-            
-        
+
+  <br>
+                <input type="submit" value="Delete">
+                <input type="hidden" name="action" value="delete">
     </body>
 </html>
