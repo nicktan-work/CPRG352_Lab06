@@ -35,7 +35,8 @@
         </c:if>
 
   <br>
+  <input type="hidden" name="action" value="delete">
                 <input type="submit" value="Delete">
-                <input type="hidden" name="action" value="delete">
+                
     </body>
 </html>

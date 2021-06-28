@@ -108,7 +108,11 @@ public class ShoppingListServlet extends HttpServlet {
         }
         else if(userAction != null && userAction.equals("delete")){
          ArrayList<String> list = (ArrayList<String>) session.getAttribute("list");
-         list.remove(request.getParameter("boxes"));
+         String itemRemove = request.getParameter("boxes");
+   
+           if (!itemRemove.equals("")) {
+                list.remove(itemRemove);    
+            }
         session.setAttribute("list", list);
         
          
